@@ -89,17 +89,19 @@ public class ShipSpec {
         assertEquals(ship.getPlanet(), planet);
     }
 
-    public void givenDirectionEAndMaxXWhenForwardThenWrap(){
+    public void givenDirectionEAndMaxXWhenReceiveCommandFThenWrap(){
         location.setDirection(Direction.EAST);
         location.getPoint().setX(planet.getMax().getX());
-        ship.moveForward();
+        ship.receiveCommand("f");
         assertEquals(location.getX(), 1);
     }
 
-    public void givenDirectionEAndMinXWhenBackwardThenWrap(){
+    public void givenDirectionEAndMinXWhenWhenReceiveCommandBThenWrap(){
         location.setDirection(Direction.EAST);
         location.getPoint().setX(1);
-        ship.moveBackward();
+        ship.receiveCommand("b");
         assertEquals(location.getX(), planet.getMax().getX());
     }
+
+
 }

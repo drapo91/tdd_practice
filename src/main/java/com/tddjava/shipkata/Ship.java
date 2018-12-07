@@ -37,16 +37,16 @@ public class Ship {
         for (char command : commands.toCharArray()) {
             switch (command) {
                 case 'f':
-                    location.forward();
+                    moveForward();
                     break;
                 case 'b':
-                    location.backward();
+                    moveBackward();
                     break;
                 case 'l':
-                    location.turnLeft();
+                    turnLeft();
                     break;
                 case 'r':
-                    location.turnRight();
+                    turnRight();
                     break;
             }
         }

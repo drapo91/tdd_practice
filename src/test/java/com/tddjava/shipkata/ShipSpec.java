@@ -18,4 +18,18 @@ public class ShipSpec {
     public void whenInstantiatedThenLocationIsSet(){
         assertEquals(ship.getLocation(), location);
     }
+
+    public void whenMoveForwardThenForward(){
+        Location expectedLocation = location.copy();
+        expectedLocation.forward();
+        ship.moveForward();
+        assertEquals(ship.getLocation(), expectedLocation);
+    }
+
+    public void whenMoveBackwardThenBackward(){
+        Location expectedLocation = location.copy();
+        expectedLocation.backward();
+        ship.moveBackward();
+        assertEquals(ship.getLocation(), expectedLocation);
+    }
 }

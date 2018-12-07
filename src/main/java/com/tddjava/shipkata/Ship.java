@@ -2,21 +2,27 @@ package com.tddjava.shipkata;
 
 public class Ship {
     private Location location;
+    private Planet planet;
 
-    public Ship(Location location){
+    public Ship(Location location, Planet planet){
         this.location=location;
+        this.planet=planet;
     }
 
     public Location getLocation() {
         return location;
     }
 
+    public Planet getPlanet() {
+        return planet;
+    }
+
     public boolean moveForward() {
-        return location.forward();
+        return location.forward(planet.getMax());
     }
 
     public boolean moveBackward() {
-        return location.backward();
+        return location.backward(planet.getMax());
     }
 
     public void turnLeft() {

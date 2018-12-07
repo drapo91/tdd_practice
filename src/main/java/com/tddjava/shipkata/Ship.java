@@ -18,4 +18,12 @@ public class Ship {
     public boolean moveBackward() {
         return location.backward();
     }
+
+    public void turnLeft() {
+        location.turnLeft();
+    }
+
+    public void turnRight() {
+        location.turnRight();
+    }
 }

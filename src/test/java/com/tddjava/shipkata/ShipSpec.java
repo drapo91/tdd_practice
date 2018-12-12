@@ -2,6 +2,8 @@ package com.tddjava.shipkata;
 
 import org.testng.annotations.*;
 
+import java.util.Arrays;
+
 import static org.testng.Assert.assertEquals;
 
 @Test
@@ -103,5 +105,21 @@ public class ShipSpec {
         assertEquals(location.getX(), planet.getMax().getX());
     }
 
+    public void whenReceiveCommandsAndObstacleThenStop(){
+        planet.setObstacles(Arrays.asList(new Point(location.getX()+1,location.getY())));
+        location.setDirection(Direction.EAST);
+        Location expected = location.copy();
+        expected.turnLeft();
+        expected.forward();
+        ship.receiveCommand("flf");
+        assertEquals(ship.getLocation(), expected);
+        assertEquals(ship.getLocation(), expected);
+    }
 
+    public void whenReceiveCommandsThenOWhenOkAndXWhenObstacle(){
+        planet.setObstacles(Arrays.asList(new Point(location.getX()+1,location.getY())));
+        location.setDirection(Direction.EAST);
+        String movesStatus =ship.receiveCommand("flf");
+        assertEquals(movesStatus, "XOO");
+    }
 }
